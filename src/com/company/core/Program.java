@@ -21,7 +21,7 @@ public class Program
 		System.out.println("Hello and welcome to user database");
 		
 		for (;;)
-		{
+		{ // new change
 			String name;
 			int age;
 			User tempUser = new User();
