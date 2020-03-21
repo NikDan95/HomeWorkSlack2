@@ -14,6 +14,7 @@ public class UserDatabase implements Database
 {
 	private static final List<User> userDatabase = new ArrayList<>();
 	private static final FileUtil FILE_RW = new FileUtilImpl();
+	
 	@Override
 	public void saveUser(User user)
 	{
@@ -39,8 +40,8 @@ public class UserDatabase implements Database
 	}
 	
 	@Override
-	public List<User> initDatabaseOnStart()
+	public void initDatabaseOnStart()
 	{
-		return FILE_RW.readUsersFromFile();
+		userDatabase.addAll(FILE_RW.readUsersFromFile());
 	}
 }

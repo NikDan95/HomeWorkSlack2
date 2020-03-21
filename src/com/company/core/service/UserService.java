@@ -17,5 +17,5 @@ public interface UserService
 	
 	void saveAllUsersOnExit();
 	
-	List<User> initUserDatabaseOnStart();
+	void initUserDatabaseOnStart();
 }

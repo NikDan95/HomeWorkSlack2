@@ -17,5 +17,5 @@ public interface Database
 	
 	void saveAllOnExit();
 	
-	List<User> initDatabaseOnStart();
+	void initDatabaseOnStart();
 }

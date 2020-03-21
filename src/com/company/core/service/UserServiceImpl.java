@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService
 	}
 	
 	@Override
-	public List<User> initUserDatabaseOnStart()
+	public void initUserDatabaseOnStart()
 	{
-		return userDb.initDatabaseOnStart();
+		userDb.initDatabaseOnStart();
 	}
 }

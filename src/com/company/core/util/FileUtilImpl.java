@@ -2,6 +2,8 @@ package com.company.core.util;
 
 import com.company.core.model.User;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,17 +11,70 @@ import java.util.List;
  */
 public class FileUtilImpl implements FileUtil
 {
+	File file = new File("UserList.txt");
 	
-	//File
 	@Override
 	public List<User> readUsersFromFile()
 	{
-		return null;
+		checkFile();
+		List<User> userResult = new ArrayList<>();
+		String str;
+		try
+		{
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			while ((str = reader.readLine()) != null)
+			{
+				System.out.println(str);
+				String[] nameAge = str.split(" ",2);
+				userResult.add(new User(nameAge[0], Integer.parseInt(nameAge[1])));
+			}
+			reader.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+			//LOG
+		}
+		return userResult;
 	}
 	
 	@Override
 	public void writeUsersToFile(List<User> users)
 	{
+		checkFile();
+		try
+		{
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+			for (User u : users)
+			{
+				writer.write(u.getName() + " " + u.getAge());
+				writer.write(System.lineSeparator());
+			}
+			writer.flush();
+			writer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
 	
+	private void checkFile()
+	{
+		if (!file.exists())
+		{
+			try
+			{
+				file.createNewFile();
+			}
+			catch (IOException ex)
+			{
+				ex.printStackTrace();
+			}
+			
+		}
+		
+		
 	}
 }
