@@ -26,7 +26,6 @@ public class Program
 		for (; ; )
 		{
 			
-			/////////////////// anyMethod();
 			String inputCommand = SCANNER.nextLine();
 			checkCOmmand(inputCommand);
 		
@@ -35,7 +34,6 @@ public class Program
 	
 	private static void getProgramInfo()
 	{
-		//fill the commands info
 		System.out.println(" Hello you can <add> <remove> <exit> <all> commandes \n add- you can with this method add user \n remove - you can with this command remove user \n exit- with this method you can close this program \n all- yoc can see all the users from db");
 	}
 	

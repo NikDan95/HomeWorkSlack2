@@ -5,7 +5,7 @@ import com.company.core.model.User;
 import java.util.List;
 
 /**
- * comments here
+ * comments
  */
 public interface Database
 {
